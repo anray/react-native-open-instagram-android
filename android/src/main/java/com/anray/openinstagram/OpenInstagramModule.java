@@ -49,6 +49,7 @@ public class OpenInstagramModule extends ReactContextBaseJavaModule {
     private String mHashTagPasteMessage = "Вставьте в подпись #ХэшТег из буфера";
     private String mImageFileName;
     private final String PHOTO_UID = "527ba7dcf5099904b634a9f9ae0da05c4af6d08b";
+    private boolean mShowToast = false;
 
 
     //EXPORT CONSTANTS EXAMPLE
@@ -133,7 +134,7 @@ public class OpenInstagramModule extends ReactContextBaseJavaModule {
         Intent intent = getReactApplicationContext().getPackageManager().getLaunchIntentForPackage(mInstagramPackageName);
         if (intent != null) {
 
-            // Gets a handle to the clipboard service.
+           /* // Gets a handle to the clipboard service.
             ClipboardManager clipboard = (ClipboardManager) getReactApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
 
             // Creates a new text clip to put on the clipboard
@@ -141,7 +142,7 @@ public class OpenInstagramModule extends ReactContextBaseJavaModule {
 
 
             // Set the clipboard's primary clip.
-            clipboard.setPrimaryClip(clip);
+            clipboard.setPrimaryClip(clip);*/
 
 
             Intent instagram = new Intent(android.content.Intent.ACTION_SEND);
@@ -152,7 +153,9 @@ public class OpenInstagramModule extends ReactContextBaseJavaModule {
             instagram.setPackage(mInstagramPackageName);
             getCurrentActivity().startActivityForResult(instagram, FROM_INSTAGRAM);
 
-            showToast(mHashTagPasteMessage);
+            if (mShowToast) {
+                showToast(mHashTagPasteMessage);
+            }
 
 
         } else {
@@ -183,8 +186,32 @@ public class OpenInstagramModule extends ReactContextBaseJavaModule {
 
     }
 
+    @ReactMethod
+    public void setHashTag(String hashTagValue) {
+
+        mHashTagValue = hashTagValue;
+
+    }
+
+    @ReactMethod
+    public void setHashTagToastMessage(String hashTagPasteMessage) {
+
+        mHashTagPasteMessage = hashTagPasteMessage;
+
+    }
+
+    @ReactMethod
+    public void shareToInstagram(boolean showToast) {
+
+        mShowToast = showToast;
+
+        loadPhotoFromCamera();
+
+    }
+
     /**
      * pass null value to prevent showing Toast message
+     *
      * @param hashTagValue
      * @param hashTagPasteMessage
      * @param photoWasUploadedMessage
@@ -249,9 +276,11 @@ public class OpenInstagramModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void showToast(String message) {
+
         if (message != null) {
             Toast.makeText(getCurrentActivity(), message, Toast.LENGTH_LONG).show();
         }
+
     }
 
     /**
