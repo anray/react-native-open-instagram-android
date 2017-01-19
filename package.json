@@ -1,27 +1,91 @@
 {
-  "name": "react-native-open-instagram-android",
-  "version": "0.0.1",
-  "author": "anray",
-  "private": false,
-  "license": "Unlicense",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/anray/react-native-open-instagram-android.git"
+  "_args": [
+    [
+      {
+        "raw": "git+https://github.com/anray/react-native-open-instagram-android.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "git+https://github.com/anray/react-native-open-instagram-android.git",
+        "spec": "git+https://github.com/anray/react-native-open-instagram-android.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:anray/react-native-open-instagram-android.git",
+          "sshUrl": "git+ssh://git@github.com/anray/react-native-open-instagram-android.git",
+          "httpsUrl": "git+https://github.com/anray/react-native-open-instagram-android.git",
+          "gitUrl": "git://github.com/anray/react-native-open-instagram-android.git",
+          "shortcut": "github:anray/react-native-open-instagram-android",
+          "directUrl": "https://raw.githubusercontent.com/anray/react-native-open-instagram-android/master/package.json"
+        }
+      },
+      "C:\\Users\\anray\\ReactProjects\\SalonBeauty"
+    ]
+  ],
+  "_from": "git+https://github.com/anray/react-native-open-instagram-android.git",
+  "_id": "react-native-open-instagram-android@0.0.1",
+  "_inCache": true,
+  "_location": "/react-native-open-instagram-android",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "git+https://github.com/anray/react-native-open-instagram-android.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "git+https://github.com/anray/react-native-open-instagram-android.git",
+    "spec": "git+https://github.com/anray/react-native-open-instagram-android.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:anray/react-native-open-instagram-android.git",
+      "sshUrl": "git+ssh://git@github.com/anray/react-native-open-instagram-android.git",
+      "httpsUrl": "git+https://github.com/anray/react-native-open-instagram-android.git",
+      "gitUrl": "git://github.com/anray/react-native-open-instagram-android.git",
+      "shortcut": "github:anray/react-native-open-instagram-android",
+      "directUrl": "https://raw.githubusercontent.com/anray/react-native-open-instagram-android/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/anray/react-native-open-instagram-android.git#3a5511ffa729f79c71b6a1d90f22d790aa7a96a7",
+  "_shasum": "fda4d497b1598bcc8849af709b59bb6e819ad88d",
+  "_shrinkwrap": null,
+  "_spec": "git+https://github.com/anray/react-native-open-instagram-android.git",
+  "_where": "C:\\Users\\anray\\ReactProjects\\SalonBeauty",
+  "author": {
+    "name": "anray"
   },
   "bugs": {
     "url": "https://github.com/anray/react-native-open-instagram-android/issues"
   },
+  "dependencies": {},
+  "description": "Guide: http://cmichel.io/how-to-create-react-native-android-library/",
+  "devDependencies": {},
+  "gitHead": "3a5511ffa729f79c71b6a1d90f22d790aa7a96a7",
   "homepage": "https://github.com/anray/react-native-open-instagram-android",
   "keywords": [
     "react-native",
     "android",
     "library"
   ],
+  "license": "Unlicense",
+  "name": "react-native-open-instagram-android",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": ">=0.38.0"
+  },
+  "private": false,
+  "readme": "Guide: http://cmichel.io/how-to-create-react-native-android-library/\r\n\r\n## React Native Android Library Boilerplate\r\nThis project serves as a boilerplate to create custom React Native native modules that can later be installed through NPM and easily be used in production.\r\n\r\n## Getting started\r\n1. Clone the project\r\n2. Customize the project name by doing the following:\r\n    * Edit `author` and `name` in `package.json`\r\n    * Customize the Java package name (`com.domain.package`) as follows:\r\n        1. Modify it in `android/src/main/AndroidManifest.xml`.\r\n        2. Rename the folders starting from `android/src/main/java` to match your package name.\r\n        3. Adjust `package com.anray.openinstagram;` in the top of the `OpenInstagramModule.java` and `Package.java` files in `android/src/main//java/package/path` to match it.\r\n    * Edit the name of your module in \r\n\r\n        ```java\r\n        @Override\r\n        public String getName() {\r\n            return \"OpenInstagram\";\r\n        }\r\n        ```\r\n\r\n        and adjust it in `index.android.js`\r\n3. Modify/Build the Project in Android Studio\r\n    * Start `Android Studio` and select `File -> New -> Import Project` and select the **android** folder of this package.\r\n    * If you get a `Plugin with id 'android-library' not found` Error, install `android support repository`.\r\n    * If you get asked to upgrade _gradle_ to a new version, you can skip it.\r\n\r\n## Installing it as a library in your main project\r\nThere are many ways to do this, here's the way I do it:\r\n\r\n1. Push it to **GitHub**.\r\n2. Do `npm install --save git+https://github.com/anray/react-native-open-instagram-android.git` in your main project.\r\n3. Link the library:\r\n    * Add the following to `android/settings.gradle`:\r\n        ```\r\n        include ':react-native-open-instagram-android'\r\n        project(':react-native-open-instagram-android').projectDir = new File(settingsDir, '../node_modules/react-native-open-instagram-android/android')\r\n        ```\r\n\r\n    * Add the following to `android/app/build.gradle`:\r\n        ```xml\r\n        ...\r\n\r\n        dependencies {\r\n            ...\r\n            compile project(':react-native-open-instagram-android')\r\n        }\r\n        ```\r\n    * Add the following to `android/app/src/main/java/**/MainApplication.java`:\r\n        ```java\r\n        package com.motivation;\r\n\r\n        import com.anray.openinstagram.Package;  // add this for react-native-open-instagram-android\r\n\r\n        public class MainApplication extends Application implements ReactApplication {\r\n\r\n            @Override\r\n            protected List<ReactPackage> getPackages() {\r\n                return Arrays.<ReactPackage>asList(\r\n                    new MainReactPackage(),\r\n                    new Package()     // add this for react-native-open-instagram-android\r\n                );\r\n            }\r\n        }\r\n        ```\r\n4. Simply `import/require` it by the name defined in your library's `package.json`:\r\n\r\n    ```javascript\r\n    import OpenInstagram from 'react-native-open-instagram-android'\r\n    OpenInstagram.loadPhotoFromCameraWithHastag('#hashTag')\r\n    ```\r\n5. You can test and develop your library by importing the `node_modules` library into **Android Studio** if you don't want to install it from _git_ all the time.\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anray/react-native-open-instagram-android.git"
+  },
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
-  "peerDependencies": {
-    "react-native": ">=0.38.0"
-  }
+  "version": "0.0.1"
 }
