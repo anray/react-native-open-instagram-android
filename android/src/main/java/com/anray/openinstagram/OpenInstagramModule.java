@@ -304,7 +304,7 @@ public class OpenInstagramModule extends ReactContextBaseJavaModule {
         values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
         values.put(MediaStore.MediaColumns.DATA, image.getAbsolutePath());
 
-        getReactApplicationContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        getCurrentActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
         return image;
 
